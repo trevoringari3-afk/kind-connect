@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { User, LogOut } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
+import { MessageCoach } from "@/components/MessageCoach";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -113,6 +114,9 @@ const Dashboard = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* AI Message Coach */}
+          <MessageCoach />
 
           {/* Coming Soon Cards */}
           <div className="grid md:grid-cols-2 gap-6">

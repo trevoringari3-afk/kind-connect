@@ -1,1 +1,4 @@
 project_id = "nkhzlwaegukauhmossyn"
+
+[functions.message-coach]
+verify_jwt = true
