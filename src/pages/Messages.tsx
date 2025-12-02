@@ -13,6 +13,7 @@ const Messages = () => {
   const [user, setUser] = useState<User | null>(null);
   const [selectedMatchId, setSelectedMatchId] = useState<string | null>(null);
   const [selectedMatchName, setSelectedMatchName] = useState<string>("");
+  const [selectedOtherUserId, setSelectedOtherUserId] = useState<string>("");
   const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ const Messages = () => {
 
       if (match) {
         const otherUserId = match.user1_id === user.id ? match.user2_id : match.user1_id;
+        setSelectedOtherUserId(otherUserId);
         const { data: profile } = await supabase
           .from("profiles")
           .select("display_name")
@@ -71,6 +73,7 @@ const Messages = () => {
 
   const handleBack = () => {
     setSelectedMatchId(null);
+    setSelectedOtherUserId("");
   };
 
   if (!user) return null;
@@ -130,6 +133,8 @@ const Messages = () => {
                       matchId={selectedMatchId}
                       currentUserId={user.id}
                       otherUserName={selectedMatchName}
+                      otherUserId={selectedOtherUserId}
+                      onUserBlocked={handleBack}
                     />
                   </>
                 ) : (

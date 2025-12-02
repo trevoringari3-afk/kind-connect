@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { UserActions } from "./UserActions";
 
 interface Message {
   id: string;
@@ -20,12 +21,16 @@ interface ChatWindowProps {
   matchId: string;
   currentUserId: string;
   otherUserName: string;
+  otherUserId: string;
+  onUserBlocked?: () => void;
 }
 
 export const ChatWindow = ({
   matchId,
   currentUserId,
   otherUserName,
+  otherUserId,
+  onUserBlocked,
 }: ChatWindowProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState("");
@@ -85,11 +90,46 @@ export const ChatWindow = ({
     setMessages(data || []);
   };
 
+  const checkToxicity = async (content: string): Promise<boolean> => {
+    try {
+      const { data, error } = await supabase.functions.invoke("check-toxicity", {
+        body: { content, userId: currentUserId },
+      });
+
+      if (error) {
+        console.error("Toxicity check error:", error);
+        return false; // Allow message on error
+      }
+
+      if (data?.is_toxic) {
+        toast({
+          title: "Message flagged",
+          description: "Your message was flagged for potentially harmful content. Please revise it.",
+          variant: "destructive",
+        });
+        return true;
+      }
+
+      return false;
+    } catch (err) {
+      console.error("Toxicity check failed:", err);
+      return false;
+    }
+  };
+
   const sendMessage = async () => {
     if (!newMessage.trim() || sending) return;
 
     setSending(true);
     const content = newMessage.trim();
+
+    // Check for toxicity before sending
+    const isToxic = await checkToxicity(content);
+    if (isToxic) {
+      setSending(false);
+      return;
+    }
+
     setNewMessage("");
 
     const { error } = await supabase.from("messages").insert({
@@ -152,8 +192,9 @@ export const ChatWindow = ({
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="p-4 border-b border-border bg-card/50">
+      <div className="p-4 border-b border-border bg-card/50 flex items-center justify-between">
         <h3 className="font-semibold">{otherUserName}</h3>
+        <UserActions userId={otherUserId} userName={otherUserName} onBlocked={onUserBlocked} />
       </div>
 
       {/* Messages */}

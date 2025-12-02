@@ -2,3 +2,6 @@ project_id = "nkhzlwaegukauhmossyn"
 
 [functions.message-coach]
 verify_jwt = true
+
+[functions.check-toxicity]
+verify_jwt = true
