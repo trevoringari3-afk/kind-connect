@@ -5,3 +5,12 @@ verify_jwt = true
 
 [functions.check-toxicity]
 verify_jwt = true
+
+[functions.mpesa-payment]
+verify_jwt = true
+
+[functions.airtel-payment]
+verify_jwt = true
+
+[functions.payment-callback]
+verify_jwt = false
