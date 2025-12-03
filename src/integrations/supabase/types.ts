@@ -141,6 +141,51 @@ export type Database = {
           },
         ]
       }
+      payment_transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          id: string
+          metadata: Json | null
+          phone_number: string | null
+          provider: string
+          provider_transaction_id: string | null
+          status: string
+          tier: Database["public"]["Enums"]["subscription_tier"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string
+          id?: string
+          metadata?: Json | null
+          phone_number?: string | null
+          provider: string
+          provider_transaction_id?: string | null
+          status?: string
+          tier: Database["public"]["Enums"]["subscription_tier"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          id?: string
+          metadata?: Json | null
+          phone_number?: string | null
+          provider?: string
+          provider_transaction_id?: string | null
+          status?: string
+          tier?: Database["public"]["Enums"]["subscription_tier"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           age: number
@@ -219,6 +264,45 @@ export type Database = {
         }
         Relationships: []
       }
+      subscriptions: {
+        Row: {
+          advanced_insights: boolean
+          created_at: string
+          daily_messages_limit: number
+          expires_at: string | null
+          id: string
+          starts_at: string
+          tier: Database["public"]["Enums"]["subscription_tier"]
+          updated_at: string
+          user_id: string
+          visibility_boost: number
+        }
+        Insert: {
+          advanced_insights?: boolean
+          created_at?: string
+          daily_messages_limit?: number
+          expires_at?: string | null
+          id?: string
+          starts_at?: string
+          tier?: Database["public"]["Enums"]["subscription_tier"]
+          updated_at?: string
+          user_id: string
+          visibility_boost?: number
+        }
+        Update: {
+          advanced_insights?: boolean
+          created_at?: string
+          daily_messages_limit?: number
+          expires_at?: string | null
+          id?: string
+          starts_at?: string
+          tier?: Database["public"]["Enums"]["subscription_tier"]
+          updated_at?: string
+          user_id?: string
+          visibility_boost?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -245,6 +329,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_tier_benefits: {
+        Args: { tier_name: Database["public"]["Enums"]["subscription_tier"] }
+        Returns: {
+          advanced_insights: boolean
+          daily_messages: number
+          visibility_boost: number
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -255,6 +347,7 @@ export type Database = {
     }
     Enums: {
       app_role: "user" | "moderator" | "admin"
+      subscription_tier: "free" | "basic" | "premium"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -383,6 +476,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["user", "moderator", "admin"],
+      subscription_tier: ["free", "basic", "premium"],
     },
   },
 } as const
