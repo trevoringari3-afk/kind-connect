@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { User, LogOut } from "lucide-react";
+import { User, LogOut, Sparkles } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { MessageCoach } from "@/components/MessageCoach";
 
@@ -67,13 +67,23 @@ const Dashboard = () => {
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container px-4 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-display font-bold bg-gradient-warm bg-clip-text text-transparent">
+          <h1 className="text-2xl font-display font-bold bg-gradient-cool bg-clip-text text-transparent">
             SmartApproach
           </h1>
-          <Button variant="ghost" onClick={handleLogout}>
-            <LogOut className="w-4 h-4 mr-2" />
-            Sign Out
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button 
+              onClick={() => navigate("/subscription")}
+              className="relative group bg-gradient-cool hover:opacity-90 shadow-soft hover:shadow-medium transition-all duration-300 px-4 py-2"
+            >
+              <Sparkles className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+              <span className="font-medium">Upgrade</span>
+              <div className="absolute inset-0 rounded-md bg-primary-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </Button>
+            <Button variant="ghost" onClick={handleLogout}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Sign Out
+            </Button>
+          </div>
         </div>
       </header>
 
