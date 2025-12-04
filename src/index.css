@@ -8,117 +8,131 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Background colors - soft warm neutral */
-    --background: 20 15% 98%;
-    --foreground: 20 8% 15%;
+    /* Background colors - soft warm cream */
+    --background: 30 25% 98%;
+    --foreground: 240 10% 15%;
 
-    /* Card surface with subtle warmth */
+    /* Card surface */
     --card: 0 0% 100%;
-    --card-foreground: 20 8% 15%;
+    --card-foreground: 240 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 8% 15%;
+    --popover-foreground: 240 10% 15%;
 
-    /* Primary - warm coral */
-    --primary: 8 82% 65%;
+    /* Primary - soft blue */
+    --primary: 220 70% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 8 92% 75%;
+    --primary-glow: 220 80% 70%;
 
-    /* Secondary - soft teal accent */
-    --secondary: 175 45% 55%;
+    /* Secondary - gentle purple */
+    --secondary: 265 50% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted surfaces with warmth */
-    --muted: 20 15% 95%;
-    --muted-foreground: 20 8% 45%;
+    /* Muted surfaces */
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Accent - teal highlight */
-    --accent: 175 45% 55%;
+    /* Accent - warm peach/coral */
+    --accent: 25 85% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Soft borders */
-    --border: 20 12% 90%;
-    --input: 20 12% 90%;
-    --ring: 8 82% 65%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 70% 55%;
 
     /* Rounded design */
     --radius: 0.75rem;
 
-    /* Gradients for atmospheric depth */
-    --gradient-warm: linear-gradient(135deg, hsl(8 82% 65%), hsl(20 85% 60%));
-    --gradient-cool: linear-gradient(135deg, hsl(175 45% 55%), hsl(185 48% 50%));
-    --gradient-subtle: linear-gradient(180deg, hsl(20 15% 98%), hsl(20 15% 96%));
-    
-    /* Shadows with warm tint */
-    --shadow-soft: 0 2px 8px hsl(8 82% 65% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(8 82% 65% / 0.12);
-    --shadow-large: 0 8px 32px hsl(8 82% 65% / 0.16);
+    /* Bubble colors for the visual metaphor */
+    --bubble-faded: 220 15% 75%;
+    --bubble-glow: 220 80% 60%;
+    --bubble-glow-light: 265 60% 70%;
+    --sparkle: 45 100% 70%;
 
-    /* Sidebar (if needed later) */
-    --sidebar-background: 20 15% 98%;
-    --sidebar-foreground: 20 8% 15%;
-    --sidebar-primary: 8 82% 65%;
+    /* Gradients for atmospheric depth */
+    --gradient-warm: linear-gradient(135deg, hsl(25 85% 65%), hsl(35 80% 60%));
+    --gradient-cool: linear-gradient(135deg, hsl(220 70% 55%), hsl(265 50% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(30 25% 98%), hsl(240 20% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 97%) 0%, hsl(265 25% 96%) 50%, hsl(25 30% 97%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(220 70% 55% / 0.08);
+    --shadow-medium: 0 4px 20px hsl(220 70% 55% / 0.12);
+    --shadow-large: 0 8px 40px hsl(220 70% 55% / 0.16);
+    --shadow-glow: 0 0 40px hsl(220 80% 70% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 30 25% 98%;
+    --sidebar-foreground: 240 10% 15%;
+    --sidebar-primary: 220 70% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 15% 95%;
-    --sidebar-accent-foreground: 20 8% 15%;
-    --sidebar-border: 20 12% 90%;
-    --sidebar-ring: 8 82% 65%;
+    --sidebar-accent: 220 20% 96%;
+    --sidebar-accent-foreground: 240 10% 15%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 220 70% 55%;
   }
 
   .dark {
-    /* Dark mode with warm undertones */
-    --background: 20 12% 8%;
-    --foreground: 20 8% 95%;
+    /* Dark mode */
+    --background: 240 15% 8%;
+    --foreground: 220 15% 95%;
 
-    --card: 20 12% 10%;
-    --card-foreground: 20 8% 95%;
+    --card: 240 15% 10%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 20 12% 10%;
-    --popover-foreground: 20 8% 95%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 220 15% 95%;
 
-    /* Primary coral remains vibrant in dark */
-    --primary: 8 82% 65%;
+    --primary: 220 70% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 8 92% 75%;
+    --primary-glow: 220 80% 70%;
 
-    /* Secondary teal softened for dark mode */
-    --secondary: 175 35% 45%;
+    --secondary: 265 45% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 20 12% 15%;
-    --muted-foreground: 20 8% 60%;
+    --muted: 240 15% 15%;
+    --muted-foreground: 220 15% 60%;
 
-    --accent: 175 35% 45%;
+    --accent: 25 75% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 12% 18%;
-    --input: 20 12% 18%;
-    --ring: 8 82% 65%;
+    --border: 240 15% 18%;
+    --input: 240 15% 18%;
+    --ring: 220 70% 60%;
+
+    /* Dark bubble colors */
+    --bubble-faded: 220 15% 35%;
+    --bubble-glow: 220 80% 65%;
+    --bubble-glow-light: 265 60% 65%;
+    --sparkle: 45 100% 65%;
 
     /* Dark mode gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(8 82% 65% / 0.3), hsl(20 85% 60% / 0.3));
-    --gradient-cool: linear-gradient(135deg, hsl(175 45% 55% / 0.3), hsl(185 48% 50% / 0.3));
-    --gradient-subtle: linear-gradient(180deg, hsl(20 12% 8%), hsl(20 12% 10%));
+    --gradient-warm: linear-gradient(135deg, hsl(25 85% 55% / 0.3), hsl(35 80% 50% / 0.3));
+    --gradient-cool: linear-gradient(135deg, hsl(220 70% 55% / 0.3), hsl(265 50% 55% / 0.3));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 15% 8%), hsl(240 15% 10%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 20% 10%) 0%, hsl(265 15% 12%) 50%, hsl(240 15% 10%) 100%);
 
-    /* Shadows with glow in dark mode */
-    --shadow-soft: 0 2px 8px hsl(8 82% 65% / 0.15);
-    --shadow-medium: 0 4px 16px hsl(8 82% 65% / 0.2);
-    --shadow-large: 0 8px 32px hsl(8 82% 65% / 0.25);
+    /* Shadows with glow */
+    --shadow-soft: 0 2px 8px hsl(220 70% 60% / 0.15);
+    --shadow-medium: 0 4px 20px hsl(220 70% 60% / 0.2);
+    --shadow-large: 0 8px 40px hsl(220 70% 60% / 0.25);
+    --shadow-glow: 0 0 50px hsl(220 80% 70% / 0.5);
 
-    --sidebar-background: 20 12% 8%;
-    --sidebar-foreground: 20 8% 95%;
-    --sidebar-primary: 8 82% 65%;
+    --sidebar-background: 240 15% 8%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 220 70% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 12% 15%;
-    --sidebar-accent-foreground: 20 8% 95%;
-    --sidebar-border: 20 12% 18%;
-    --sidebar-ring: 8 82% 65%;
+    --sidebar-accent: 240 15% 15%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 240 15% 18%;
+    --sidebar-ring: 220 70% 60%;
   }
 }
 
@@ -136,6 +150,61 @@ All colors MUST be HSL.
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     font-weight: 600;
   }
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--bubble-glow) / 0.3), 0 0 40px hsl(var(--bubble-glow-light) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--bubble-glow) / 0.5), 0 0 60px hsl(var(--bubble-glow-light) / 0.3);
+  }
+}
+
+@keyframes flow {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-flow {
+  animation: flow 2s ease-in-out infinite;
 }
 
 /* Import fonts */

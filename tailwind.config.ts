@@ -52,6 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        bubble: {
+          faded: "hsl(var(--bubble-faded))",
+          glow: "hsl(var(--bubble-glow))",
+          "glow-light": "hsl(var(--bubble-glow-light))",
+        },
+        sparkle: "hsl(var(--sparkle))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -67,11 +73,13 @@ export default {
         'gradient-warm': 'var(--gradient-warm)',
         'gradient-cool': 'var(--gradient-cool)',
         'gradient-subtle': 'var(--gradient-subtle)',
+        'gradient-hero': 'var(--gradient-hero)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'medium': 'var(--shadow-medium)',
         'large': 'var(--shadow-large)',
+        'glow': 'var(--shadow-glow)',
       },
       borderRadius: {
         lg: "var(--radius)",
