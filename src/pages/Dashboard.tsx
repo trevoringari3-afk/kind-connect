@@ -8,6 +8,7 @@ import { User, LogOut, Sparkles } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { MessageCoach } from "@/components/MessageCoach";
 import { DiscoverMatches } from "@/components/DiscoverMatches";
+import { MatchRequestsInbox } from "@/components/MatchRequestsInbox";
 import { useMatchNotifications } from "@/hooks/useMatchNotifications";
 
 const Dashboard = () => {
@@ -132,6 +133,11 @@ const Dashboard = () => {
 
           {/* AI Message Coach */}
           <MessageCoach />
+
+          {/* Match Requests Inbox */}
+          {user && (
+            <MatchRequestsInbox currentUserId={user.id} />
+          )}
 
           {/* Discover Matches */}
           {user && (
