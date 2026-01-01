@@ -8,12 +8,16 @@ import { User, LogOut, Sparkles } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { MessageCoach } from "@/components/MessageCoach";
 import { DiscoverMatches } from "@/components/DiscoverMatches";
+import { useMatchNotifications } from "@/hooks/useMatchNotifications";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [profile, setProfile] = useState<any>(null);
+
+  // Enable real-time match notifications
+  useMatchNotifications({ userId: user?.id || null });
 
   useEffect(() => {
     checkAuth();
