@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { User, LogOut, Sparkles } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { MessageCoach } from "@/components/MessageCoach";
+import { DiscoverMatches } from "@/components/DiscoverMatches";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -128,21 +129,16 @@ const Dashboard = () => {
           {/* AI Message Coach */}
           <MessageCoach />
 
-          {/* Coming Soon Cards */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="shadow-soft hover:shadow-medium transition-all">
-              <CardHeader>
-                <CardTitle className="font-display">Discover Matches</CardTitle>
-                <CardDescription>
-                  Find compatible people based on shared interests
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button disabled className="w-full">
-                  Coming Soon
-                </Button>
-              </CardContent>
-            </Card>
+          {/* Discover Matches */}
+          {user && (
+            <DiscoverMatches 
+              currentUserId={user.id} 
+              userLocation={profile?.location} 
+            />
+          )}
+
+          {/* Messages Card */}
+          <div className="grid md:grid-cols-1 gap-6">
 
             <Card className="shadow-soft hover:shadow-medium transition-all">
               <CardHeader>
